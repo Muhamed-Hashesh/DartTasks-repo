@@ -1,5 +1,9 @@
-import 'package:task4car/task4car.dart' as task4car;
+
+
+import 'package:task4car/car.dart';
 
 void main(List<String> arguments) {
-  print('Hello world: ${task4car.calculate()}!');
+
+  Car car = Car(brand: 'bmw', model: 'x5', year: 2020);
+  print(car.getDescription());
 }
