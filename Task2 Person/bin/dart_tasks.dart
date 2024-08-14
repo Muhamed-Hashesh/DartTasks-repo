@@ -1,5 +1,6 @@
-import 'package:dart_tasks/dart_tasks.dart' as dart_tasks;
+import 'package:dart_tasks/person.dart';
 
 void main(List<String> arguments) {
-  print('Hello world: ${dart_tasks.calculate()}!');
+  Person ahmed = Person(name: 'Ahmed', age: 25);
+  print(ahmed.printProperties());
 }
