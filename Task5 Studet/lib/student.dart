@@ -10,6 +10,5 @@ class Student extends Person {
   @override
   String printProperties() {
     return "The student name is $name and age is $age and student ID is $studentID and grade is $grade";
-    throw UnimplementedError();
   }
 }
