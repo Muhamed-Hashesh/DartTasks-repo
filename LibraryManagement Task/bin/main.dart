@@ -26,7 +26,8 @@ void main(List<String> arguments) async {
       title: 'To Kill a Mockingbird',
       author: 'Harper Lee',
       isbn: '78478',
-      availability: 3));
+      availability: 8)
+    ..borrow());  // avilability = 7 , !8
   library.addBook(Book(
       title: 'Bridge to Terabithia',
       author: 'George Orwell',
@@ -38,8 +39,11 @@ void main(List<String> arguments) async {
 
   print('=================================');
 
+  print('Search By title:');
   print(library.searchByTitle('to'));
-  print(library.searchByAuthor('Orwell'));
 
   print('=================================');
+
+  print('Search By author:');
+  print(library.searchByAuthor('Orwell'));
 }

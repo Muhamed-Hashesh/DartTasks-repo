@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 class Book {
   String title;
   String author;
@@ -16,15 +14,15 @@ class Book {
   void borrow() {
     if (availability > 0) {
       availability--;
-      log('Book borrowed successfully.');
+      print('Book borrowed successfully.');
     } else {
-      log('Sorry, this book is not available.');
+      print('Sorry, this book is not available.');
     }
   }
 
   void returnBook() {
     availability++;
-    log('Book returned successfully.');
+    print('Book returned successfully.');
   }
 
   String printData() {
