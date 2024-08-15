@@ -14,7 +14,7 @@ class Library {
     for (int i = 0; i < books.length; i++) {
       if (books[i].title.toLowerCase().contains(title.toLowerCase())) {
         foundBooks.add(books[i]);
-        log('Founded Books by title ${i + 1} => ${books[i].printData()}');
+        log('Founded Books by title id ${i + 1} => ${books[i].printData()}');
       }
     }
     return foundBooks;
@@ -25,7 +25,7 @@ class Library {
     for (int i = 0; i < books.length; i++) {
       if (books[i].author.toLowerCase().contains(author.toLowerCase())) {
         foundBooksbyAuthor.add(books[i]);
-        log('Founded Books by author ${i + 1} => ${books[i].printData()}');
+        log('Founded Books by author id ${i + 1} => ${books[i].printData()}');
       }
     }
     return foundBooksbyAuthor;

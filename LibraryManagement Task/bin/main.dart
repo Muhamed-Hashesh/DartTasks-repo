@@ -3,6 +3,19 @@ import 'package:librarymanagement/library.dart';
 
 void main(List<String> arguments) async {
   var library = Library();
+  Book harry = Book(
+      title: 'Harry Potter',
+      author: 'J.K. Rowling',
+      isbn: '1234',
+      availability: 10);
+
+  library.addBook(harry);
+  harry.borrow();
+  harry.printData();
+  // harry.returnBook();
+  // harry.printData();
+
+  print('=================================');
 
   library.addBook(Book(
       title: 'The Great Gatsby',
@@ -23,12 +36,10 @@ void main(List<String> arguments) async {
   print('All books in the library:');
   library.displayBooks();
 
-
+  print('=================================');
 
   print(library.searchByTitle('to'));
-
-
-
   print(library.searchByAuthor('Orwell'));
 
+  print('=================================');
 }
