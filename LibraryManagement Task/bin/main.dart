@@ -4,10 +4,11 @@ import 'package:librarymanagement/library.dart';
 void main(List<String> arguments) async {
   var library = Library();
   Book harry = Book(
-      title: 'Harry Potter',
-      author: 'J.K. Rowling',
-      isbn: '1234',
-      availability: 10);
+    title: 'Harry Potter',
+    author: 'J.K. Rowling',
+    isbn: '1234',
+    availability: 10,
+  );
 
   library.addBook(harry);
   harry.borrow();
@@ -27,7 +28,7 @@ void main(List<String> arguments) async {
       author: 'Harper Lee',
       isbn: '78478',
       availability: 8)
-    ..borrow());  // avilability = 7 , !8
+    ..borrow()); // avilability = 7 , !8
   library.addBook(Book(
       title: 'Bridge to Terabithia',
       author: 'George Orwell',
