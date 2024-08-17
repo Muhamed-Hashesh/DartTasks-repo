@@ -1,3 +1,4 @@
+import 'package:shoppingcart/cart.dart';
 import 'package:shoppingcart/product.dart';
 
 void main(List<String> arguments) {
