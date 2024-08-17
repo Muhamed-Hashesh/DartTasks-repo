@@ -22,6 +22,6 @@ void main(List<String> arguments) {
 
   print('=================================');
 
-  cart.removeProduct(name: 'Orange', quantity: 1);
+  cart.removeProduct(name: 'Orange', quantity: 3);
   cart.displayCart();
 }

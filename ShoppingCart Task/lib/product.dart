@@ -16,10 +16,16 @@ class Cart {
   }
 
   void removeProduct({required String name, int quantity = 1}) {
-    if (quantity > 0) {
-      products.removeWhere(
-        (product) => product.name == name && product.quantity >= quantity,
-      );
+    for (var i = 0; i < products.length; i++) {
+      if (products[i].name == name && products[i].quantity >= quantity) {
+        products[i].quantity -= quantity;
+        if (products[i].quantity <= 0) {
+          products.removeAt(i);
+        }
+      } else if (products[i].name == name && products[i].quantity < quantity) {
+        print('The quantity of $name is less than $quantity');
+        products.removeAt(i);
+      }
     }
   }
 
