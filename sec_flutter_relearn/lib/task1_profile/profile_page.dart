@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sec_flutter_relearn/task1_profile/models/settings_list.dart';
 import 'package:sec_flutter_relearn/task1_profile/widgets/settings_item.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -77,30 +78,17 @@ class ProfilePage extends StatelessWidget {
               child: const Text('Upgrade to PRO'),
             ),
             const SizedBox(height: 32),
-            const SettingsCard(
-              icon: Icons.privacy_tip_outlined,
-              label: 'Privacy',
-            ),
-            const SettingsCard(
-              icon: Icons.privacy_tip_outlined,
-              label: 'Privacy',
-            ),
-            const SettingsCard(
-              icon: Icons.privacy_tip_outlined,
-              label: 'Privacy',
-            ),
-            const SettingsCard(
-              icon: Icons.privacy_tip_outlined,
-              label: 'Privacy',
-            ),
-            const SettingsCard(
-              icon: Icons.privacy_tip_outlined,
-              label: 'Privacy',
-            ),
-            const SettingsCard(
-              icon: Icons.privacy_tip_outlined,
-              label: 'Privacy',
-            ),
+            Column(
+              children: List.generate(
+                settingsList.length,
+                (index) => SettingsCard(
+                  label: settingsList[index]['title'],
+                  icon: settingsList[index]['icon'],
+                  hasArrow:
+                      settingsList[index]['title'] == 'Logout' ? false : true,
+                ),
+              ),
+            )
           ],
         ),
       ),

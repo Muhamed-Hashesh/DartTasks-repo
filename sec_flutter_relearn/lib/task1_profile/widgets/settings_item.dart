@@ -15,6 +15,7 @@ class SettingsCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(16),
+      margin: const EdgeInsets.only(bottom: 16),
       decoration: BoxDecoration(
         color: const Color(0xff333335),
         borderRadius: BorderRadius.circular(25),
@@ -36,7 +37,7 @@ class SettingsCard extends StatelessWidget {
                   Icons.arrow_forward_ios_outlined,
                   color: Colors.white,
                 )
-              : Container()
+              : Container(),
         ],
       ),
     );
