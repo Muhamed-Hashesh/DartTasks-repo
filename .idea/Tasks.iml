@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/LibraryManagement Task/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/LibraryManagement Task/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/LibraryManagement Task/build" />
+      <excludeFolder url="file://$MODULE_DIR$/SecTask1 Abstract/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/SecTask1 Abstract/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/SecTask1 Abstract/build" />
+      <excludeFolder url="file://$MODULE_DIR$/SecTask2 Inheritance/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/SecTask2 Inheritance/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/SecTask2 Inheritance/build" />
+      <excludeFolder url="file://$MODULE_DIR$/ShoppingCart Task/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/ShoppingCart Task/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/ShoppingCart Task/build" />
+      <excludeFolder url="file://$MODULE_DIR$/Task2,3 Person/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/Task2,3 Person/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/Task2,3 Person/build" />
+      <excludeFolder url="file://$MODULE_DIR$/Task4 Car/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/Task4 Car/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/Task4 Car/build" />
+      <excludeFolder url="file://$MODULE_DIR$/Task5 Studet/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/Task5 Studet/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/Task5 Studet/build" />
+      <excludeFolder url="file://$MODULE_DIR$/sec_flutter_relearn/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/sec_flutter_relearn/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/sec_flutter_relearn/build" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Dart SDK" level="project" />
+    <orderEntry type="library" name="Dart Packages" level="project" />
+  </component>
+</module>
