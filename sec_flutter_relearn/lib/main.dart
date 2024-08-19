@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sec_flutter_relearn/cubit_learn/cubit/counter_cubit.dart';
+import 'package:sec_flutter_relearn/task1_profile/profile_page.dart';
 
 import 'cubit_learn/counter_page.dart';
 
@@ -18,7 +19,8 @@ class MyApp extends StatelessWidget {
       child: const MaterialApp(
         title: 'Flutter App',
         // home: MyHomePage(),
-        home: LearnCubit(),
+        // home: LearnCubit(),
+        home: ProfilePage(),
       ),
     );
   }
