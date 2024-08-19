@@ -25,28 +25,32 @@ class ProfilePage extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 40),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             const Row(),
-            const SizedBox(height: 24),
             const AvatarProfileImage(),
             const SizedBox(height: 16),
-            const Text(
-              'Muhamed Hashesh',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
+            const Column(
+              children: [
+                Text(
+                  'Muhamed Hashesh',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+                SizedBox(height: 8),
+                Text(
+                  'Muhammedhashesh389@gmail.com',
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: Colors.grey,
+                  ),
+                ),
+              ],
             ),
-            const SizedBox(height: 8),
-            const Text(
-              'Muhammedhashesh389@gmail.com',
-              style: TextStyle(
-                fontSize: 12,
-                color: Colors.grey,
-              ),
-            ),
-            const SizedBox(height: 24),
+            const SizedBox(height: 32),
             const UpgradePRO(),
             const SizedBox(height: 32),
             Column(
@@ -59,7 +63,8 @@ class ProfilePage extends StatelessWidget {
                       settingsList[index]['title'] == 'Logout' ? false : true,
                 ),
               ),
-            )
+            ),
+            Spacer()
           ],
         ),
       ),
