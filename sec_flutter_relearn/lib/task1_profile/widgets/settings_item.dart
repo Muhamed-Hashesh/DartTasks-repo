@@ -24,18 +24,19 @@ class SettingsCard extends StatelessWidget {
         children: [
           Icon(
             icon,
-            color: Colors.white,
+            color: Colors.white.withOpacity(0.8),
           ),
           const SizedBox(width: 8),
           Text(
             label,
-            style: const TextStyle(fontSize: 18, color: Colors.white),
+            style:
+                TextStyle(fontSize: 18, color: Colors.white.withOpacity(0.8)),
           ),
           const Spacer(),
           hasArrow
-              ? const Icon(
+              ? Icon(
                   Icons.arrow_forward_ios_outlined,
-                  color: Colors.white,
+                  color: Colors.white.withOpacity(0.5),
                 )
               : Container(),
         ],

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sec_flutter_relearn/task1_profile/models/settings_list.dart';
+import 'package:sec_flutter_relearn/task1_profile/widgets/avatar_profile_image.dart';
 import 'package:sec_flutter_relearn/task1_profile/widgets/settings_item.dart';
+import 'package:sec_flutter_relearn/task1_profile/widgets/upgrade_to_pro.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -26,31 +28,7 @@ class ProfilePage extends StatelessWidget {
           children: [
             const Row(),
             const SizedBox(height: 24),
-            Stack(
-              children: [
-                const CircleAvatar(
-                  radius: 64,
-                  backgroundImage: NetworkImage(
-                    'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
-                  ),
-                ),
-                Positioned(
-                  bottom: 0,
-                  right: 0,
-                  child: CircleAvatar(
-                    backgroundColor: Colors.yellow[700],
-                    radius: 15,
-                    child: const Center(
-                      child: Icon(
-                        Icons.ice_skating,
-                        color: Colors.black,
-                        size: 16,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
+            const AvatarProfileImage(),
             const SizedBox(height: 16),
             const Text(
               'Muhamed Hashesh',
@@ -69,14 +47,7 @@ class ProfilePage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 24),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 12),
-              decoration: BoxDecoration(
-                color: Colors.yellow[700],
-                borderRadius: BorderRadius.circular(25),
-              ),
-              child: const Text('Upgrade to PRO'),
-            ),
+            const UpgradePRO(),
             const SizedBox(height: 32),
             Column(
               children: List.generate(
