@@ -21,7 +21,7 @@ class ProfilePage extends StatelessWidget {
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24),
+        padding: const EdgeInsets.symmetric(horizontal: 40),
         child: Column(
           children: [
             const Row(),
