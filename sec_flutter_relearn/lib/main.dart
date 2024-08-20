@@ -17,14 +17,15 @@ class MyApp extends StatelessWidget {
     return BlocProvider(
       create: (BuildContext context) => CounterCubit(),
       child: MaterialApp(
-          title: 'Flutter App',
-          theme: ThemeData(
-              textTheme:
-                  GoogleFonts.poorStoryTextTheme(Theme.of(context).textTheme)),
-          // home: MyHomePage(),
-          // home: LearnCubit(),
-          // home: ProfilePage(),
-          home: OnBoardingScreen()),
+        title: 'Flutter App',
+        theme: ThemeData(
+            textTheme:
+                GoogleFonts.poorStoryTextTheme(Theme.of(context).textTheme)),
+        // home: MyHomePage(),
+        // home: LearnCubit(),
+        // home: ProfilePage(),
+        home: OnBoardingScreen(),
+      ),
     );
   }
 }
