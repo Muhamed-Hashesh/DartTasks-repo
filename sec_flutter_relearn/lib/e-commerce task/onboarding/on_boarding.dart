@@ -25,6 +25,7 @@ class OnBoardingScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(32),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 const Text(
                   'Get The Freshest Fruit Salad Combo',

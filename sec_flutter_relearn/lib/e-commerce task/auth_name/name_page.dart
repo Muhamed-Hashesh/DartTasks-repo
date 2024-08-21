@@ -24,16 +24,25 @@ class AuthNameBage extends StatelessWidget {
             const Padding(
               padding: EdgeInsets.all(32),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Text(
+                    'What is your firstname?',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 16),
                   TextField(
-
                     decoration: InputDecoration(
+                      hintText: 'Tony',
                       border: OutlineInputBorder(
+                        borderSide: BorderSide.none,
                         borderRadius: BorderRadius.all(
                           Radius.circular(18),
                         ),
                       ),
-                      fillColor: Colors.grey,
+                      contentPadding: EdgeInsets.all(20),
+                      filled: true,
+                      fillColor: Color(0xffdfdfdfe9),
                     ),
                   ),
                   SizedBox(height: 40),
