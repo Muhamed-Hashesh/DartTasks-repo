@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sec_flutter_relearn/cubit_learn/cubit/counter_cubit.dart';
 import 'package:sec_flutter_relearn/e-commerce%20task/onboarding/on_boarding.dart';
+import 'package:sec_flutter_relearn/task1_profile/profile_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,16 +17,14 @@ class MyApp extends StatelessWidget {
     return BlocProvider(
       create: (BuildContext context) => CounterCubit(),
       child: MaterialApp(
-        title: 'Flutter App',
-        theme: ThemeData(
-          textTheme:
-              GoogleFonts.poorStoryTextTheme(Theme.of(context).textTheme),
-        ),
-        // home: MyHomePage(),
-        // home: LearnCubit(),
-        // home: ProfilePage(),
-        home: const OnBoardingScreen(),
-      ),
+          title: 'Flutter App',
+          theme: ThemeData(
+              textTheme:
+                  GoogleFonts.poorStoryTextTheme(Theme.of(context).textTheme)),
+          // home: MyHomePage(),
+          // home: LearnCubit(),
+          // home: ProfilePage(),
+          home: OnBoardingScreen()),
     );
   }
 }
