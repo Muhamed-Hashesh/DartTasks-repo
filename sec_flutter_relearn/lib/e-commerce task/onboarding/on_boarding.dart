@@ -10,7 +10,7 @@ class OnBoardingScreen extends StatelessWidget {
         children: [
           Container(
             width: double.infinity,
-            height: 400,
+            height: 500,
             color: const Color(0xffFFA451),
             child: Stack(
               alignment: Alignment.center,
@@ -19,13 +19,39 @@ class OnBoardingScreen extends StatelessWidget {
               ],
             ),
           ),
-          const Text(
-            'Get The Freshest Fruit Salad Combo',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-          const Text(
-            'We deliver the best and freshest fruit salad in town. Order for a combo today!!!',
-            style: TextStyle(fontSize: 16, color: Colors.grey),
+          Padding(
+            padding: const EdgeInsets.all(32),
+            child: Column(
+              children: [
+                const Text(
+                  'Get The Freshest Fruit Salad Combo',
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+                const Text(
+                  'We deliver the best and freshest fruit salad in town. Order for a combo today!!!',
+                  style: TextStyle(fontSize: 16, color: Colors.grey),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 40),
+                Container(
+                  width: double.infinity,
+                  height: 70,
+                  decoration: BoxDecoration(
+                    color: const Color(0xffFFA451),
+                    borderRadius: BorderRadius.circular(18),
+                  ),
+                  child: const Center(
+                    child: Text(
+                      'Get Started',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
           ),
         ],
       ),
