@@ -6,7 +6,6 @@ import 'learn_APIs/pages/home_screen/api_home_screen.dart';
 
 void main() {
   runApp(const MyApp());
-  // GetUserDataService().getUserData();
 }
 
 class MyApp extends StatelessWidget {
@@ -20,8 +19,9 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Flutter App',
         theme: ThemeData(
-            textTheme:
-                GoogleFonts.poorStoryTextTheme(Theme.of(context).textTheme)),
+          textTheme:
+              GoogleFonts.poorStoryTextTheme(Theme.of(context).textTheme),
+        ),
         // home: MyHomePage(),
         // home: LearnCubit(),
         // home: ProfilePage(),
