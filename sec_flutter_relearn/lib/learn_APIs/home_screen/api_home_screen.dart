@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sec_flutter_relearn/learn_APIs/cubit/api_handler_cubit.dart';
-import 'package:sec_flutter_relearn/learn_APIs/models/user_card_model.dart';
-import 'package:sec_flutter_relearn/learn_APIs/services/user_data.dart';
 
 class ApiHomeScreen extends StatelessWidget {
   const ApiHomeScreen({super.key});

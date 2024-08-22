@@ -1,7 +1,6 @@
 part of 'api_handler_cubit.dart';
 
-@immutable
-sealed class ApiHandlerState {}
+abstract class ApiHandlerState {}
 
 final class ApiHandlerInitial extends ApiHandlerState {}
 
