@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sec_flutter_relearn/e-commerce%20task/widgets/custom_button.dart';
 
-class AuthNameBage extends StatelessWidget {
-  const AuthNameBage({super.key});
+class AuthNamePage extends StatelessWidget {
+  const AuthNamePage({super.key});
 
   @override
   Widget build(BuildContext context) {

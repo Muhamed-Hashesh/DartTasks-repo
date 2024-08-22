@@ -9,7 +9,6 @@ class GetUserDataService {
     try {
       final response =
           await _dio.get('https://jsonplaceholder.typicode.com/users');
-      // print(response.data);
       List dataList = response.data;
       List<UserCardModel> usersList = [];
 

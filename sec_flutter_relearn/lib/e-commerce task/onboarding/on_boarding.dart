@@ -39,10 +39,11 @@ class OnBoardingScreen extends StatelessWidget {
                 const SizedBox(height: 40),
                 CustomButton(
                   onTap: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const AuthNameBage(),
-                      )),
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const AuthNamePage(),
+                    ),
+                  ),
                 )
               ],
             ),
