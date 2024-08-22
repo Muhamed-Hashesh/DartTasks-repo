@@ -3,10 +3,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sec_flutter_relearn/cubit_learn/cubit/counter_cubit.dart';
 import 'package:sec_flutter_relearn/e-commerce%20task/onboarding/on_boarding.dart';
+import 'package:sec_flutter_relearn/learn_APIs/cubit/api_handler_cubit.dart';
+import 'package:sec_flutter_relearn/learn_APIs/home_screen/api_home_screen.dart';
+import 'package:sec_flutter_relearn/learn_APIs/services/user_data.dart';
 import 'package:sec_flutter_relearn/task1_profile/profile_page.dart';
 
 void main() {
   runApp(const MyApp());
+  // GetUserDataService().getUserData();
 }
 
 class MyApp extends StatelessWidget {
@@ -15,16 +19,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (BuildContext context) => CounterCubit(),
+      // create: (BuildContext context) => CounterCubit(),
+      create: (context) => ApiHandlerCubit()..getData(),
       child: MaterialApp(
-          title: 'Flutter App',
-          theme: ThemeData(
-              textTheme:
-                  GoogleFonts.poorStoryTextTheme(Theme.of(context).textTheme)),
-          // home: MyHomePage(),
-          // home: LearnCubit(),
-          // home: ProfilePage(),
-          home: OnBoardingScreen()),
+        title: 'Flutter App',
+        theme: ThemeData(
+            textTheme:
+                GoogleFonts.poorStoryTextTheme(Theme.of(context).textTheme)),
+        // home: MyHomePage(),
+        // home: LearnCubit(),
+        // home: ProfilePage(),
+        // home: OnBoardingScreen(),
+        home: ApiHomeScreen(),
+      ),
     );
   }
 }

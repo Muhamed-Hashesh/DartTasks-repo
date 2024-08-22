@@ -25,7 +25,7 @@ class OnBoardingScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(32),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
                   'Get The Freshest Fruit Salad Combo',
@@ -34,7 +34,7 @@ class OnBoardingScreen extends StatelessWidget {
                 const Text(
                   'We deliver the best and freshest fruit salad in town. Order for a combo today!!!',
                   style: TextStyle(fontSize: 16, color: Colors.grey),
-                  textAlign: TextAlign.center,
+                  // textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 40),
                 CustomButton(
