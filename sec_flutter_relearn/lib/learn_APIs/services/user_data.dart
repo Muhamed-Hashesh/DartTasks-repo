@@ -4,8 +4,7 @@ import 'package:sec_flutter_relearn/learn_APIs/models/user_card_model.dart';
 class GetUserDataService {
   final _dio = Dio();
 
-  Future<List<UserCardModel>> getUserData(
-      {required List<UserCardModel> usersList}) async {
+  Future<List<UserCardModel>> getUserData() async {
     try {
       final response =
           await _dio.get('https://jsonplaceholder.typicode.com/users');
