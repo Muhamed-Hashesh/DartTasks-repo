@@ -1,11 +1,7 @@
 import 'dart:developer';
-
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:sec_flutter_relearn/learn_APIs/models/user_card_model.dart';
-
-import '../services/user_data.dart';
-
 part 'api_handler_state.dart';
 
 class ApiHandlerCubit extends Cubit<ApiHandlerState> {

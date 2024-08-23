@@ -24,17 +24,16 @@ class ApiHomeScreen extends StatelessWidget {
             return Center(
               child: Text(state.errorMessage),
             );
-          } else {
-            return ListView.separated(
-              itemBuilder: (context, index) => ListTile(
-                leading: const Icon(Icons.access_alarm),
-                title: Text(cubit.usersList[index].name.toString()),
-                subtitle: Text(cubit.usersList[index].email.toString()),
-              ),
-              separatorBuilder: (context, index) => const SizedBox(height: 8),
-              itemCount: cubit.usersList.length,
-            );
           }
+          return ListView.separated(
+            itemBuilder: (context, index) => ListTile(
+              leading: const Icon(Icons.access_alarm),
+              title: Text(cubit.usersList[index].name.toString()),
+              subtitle: Text(cubit.usersList[index].email.toString()),
+            ),
+            separatorBuilder: (context, index) => const SizedBox(height: 8),
+            itemCount: cubit.usersList.length,
+          );
         },
       ),
     );
