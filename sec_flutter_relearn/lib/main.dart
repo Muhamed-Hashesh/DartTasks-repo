@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
       // create: (BuildContext context) => CounterCubit(),
       create: (context) => ApiHandlerCubit()..getData(),
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Flutter App',
         theme: ThemeData(
           textTheme:
