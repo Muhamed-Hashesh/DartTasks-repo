@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:sec_flutter_relearn/buttons_task/buttons.dart';
 import 'package:sec_flutter_relearn/learn_APIs/cubit/api_handler_cubit.dart';
-import 'learn_APIs/pages/home_screen/api_home_screen.dart';
+import 'package:sec_flutter_relearn/task1_profile/profile_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,8 +27,9 @@ class MyApp extends StatelessWidget {
         // home: MyHomePage(),
         // home: LearnCubit(),
         // home: ProfilePage(),
+        home: Buttons(),
         // home: OnBoardingScreen(),
-        home: ApiHomeScreen(),
+        // home: ApiHomeScreen(),
       ),
     );
   }
