@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:sec_flutter_relearn/buttons_task/navigators.dart';
-
 import '../task1_profile/profile_page.dart';
 
 class Buttons extends StatelessWidget {
