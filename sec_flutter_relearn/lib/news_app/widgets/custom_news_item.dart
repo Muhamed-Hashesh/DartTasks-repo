@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:sec_flutter_relearn/news_app/models/news_model.dart';
 
 class CustomNewsItem extends StatelessWidget {
   const CustomNewsItem({
     super.key,
+    required this.article,
     // required this.description,
   });
 
   // final String? description;
+  final Articles article;
 
   @override
   Widget build(BuildContext context) {
@@ -26,9 +29,9 @@ class CustomNewsItem extends StatelessWidget {
             ),
           ),
         ),
-        Text('zsrxdtfycvuijksdlacsdkmckoasdmcklmasklcmasklmxcklasmxcklasmklc',
-            style: TextStyle(fontSize: 24)),
-        Text('description', style: TextStyle(fontSize: 16, color: Colors.grey)),
+        Text(article.title ?? 'No Title', style: TextStyle(fontSize: 24)),
+        Text(article.description ?? 'No Description',
+            style: TextStyle(fontSize: 16, color: Colors.grey)),
       ],
     );
   }

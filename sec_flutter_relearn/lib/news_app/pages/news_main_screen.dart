@@ -41,7 +41,7 @@ class NewsMainScreen extends StatelessWidget {
           DropdownButton(
               hint: Text('🌏 Country'),
               items: List.generate(
-                5,
+                itemsList.length,
                 (index) => DropdownMenuItem(
                   child: Text(
                     itemsList[index]['label'],
@@ -49,7 +49,9 @@ class NewsMainScreen extends StatelessWidget {
                   value: itemsList[index]['value'],
                 ),
               ),
-              onChanged: (value) {})
+              onChanged: (value) {
+                // cubit.getNews(value);
+              })
         ],
       ),
       body: BlocBuilder<CallNewsCubit, CallNewsState>(
@@ -59,15 +61,23 @@ class NewsMainScreen extends StatelessWidget {
               child: CircularProgressIndicator(),
             );
           } else if (state is CallNewsSuccess) {
-            ListView.builder(
+            final articles =
+                context.read<CallNewsCubit>().newsModel.articles ?? [];
+            return ListView.builder(
               padding: EdgeInsets.symmetric(horizontal: 16),
+              itemCount: articles.length, // Add itemCount
               itemBuilder: (context, index) => Padding(
-                  padding: EdgeInsets.symmetric(vertical: 4),
-                  child: CustomNewsItem()),
+                padding: EdgeInsets.symmetric(vertical: 4),
+                child: CustomNewsItem(
+                    article: articles[index]), // Pass data to the item
+              ),
             );
           }
           return Center(
-            child: Text('Error'),
+            child: Text(
+              'Error',
+              style: TextStyle(fontSize: 50),
+            ),
           );
         },
       ),
