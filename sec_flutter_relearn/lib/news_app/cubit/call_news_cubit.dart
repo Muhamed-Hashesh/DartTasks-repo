@@ -20,7 +20,7 @@ class CallNewsCubit extends Cubit<CallNewsState> {
   getNews({required String country}) async {
     try {
       emit(CallNewsLoading());
-      Future.delayed(Duration(seconds: 5));
+      Future.delayed(const Duration(seconds: 5));
       final response = await ApiHelper.getData(
           path: AppConstants.topHeadlines,
           country: country,

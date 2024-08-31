@@ -39,7 +39,7 @@ class NewsMainScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('News App'),
+        title: const Text('News App'),
         centerTitle: true,
         actions: [
           ValueListenableBuilder(
@@ -51,10 +51,10 @@ class NewsMainScreen extends StatelessWidget {
                   items: List.generate(
                     itemsList.length,
                     (index) => DropdownMenuItem(
+                      value: itemsList[index]['value'],
                       child: Text(
                         itemsList[index]['label'],
                       ),
-                      value: itemsList[index]['value'],
                     ),
                   ),
                   onChanged: (value) {
@@ -68,23 +68,23 @@ class NewsMainScreen extends StatelessWidget {
       body: BlocBuilder<CallNewsCubit, CallNewsState>(
         builder: (context, state) {
           if (state is CallNewsLoading) {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
           } else if (state is CallNewsSuccess) {
             final articles =
                 context.read<CallNewsCubit>().newsModel.articles ?? [];
             return ListView.builder(
-              padding: EdgeInsets.symmetric(horizontal: 16),
+              padding: const EdgeInsets.symmetric(horizontal: 16),
               itemCount: articles.length, // Add itemCount
               itemBuilder: (context, index) => Padding(
-                padding: EdgeInsets.symmetric(vertical: 4),
+                padding: const EdgeInsets.symmetric(vertical: 4),
                 child: CustomNewsItem(
                     article: articles[index]), // Pass data to the item
               ),
             );
           }
-          return Center(
+          return const Center(
             child: Text(
               'Error',
               style: TextStyle(fontSize: 50),

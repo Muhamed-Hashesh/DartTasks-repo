@@ -30,9 +30,9 @@ class CustomNewsItem extends StatelessWidget {
             ),
           ),
         ),
-        Text(article.title ?? 'No Title', style: TextStyle(fontSize: 20)),
+        Text(article.title ?? 'No Title', style: const TextStyle(fontSize: 20)),
         Text(article.description ?? 'No Description',
-            style: TextStyle(fontSize: 16, color: Colors.grey)),
+            style: const TextStyle(fontSize: 16, color: Colors.grey)),
       ],
     );
   }
