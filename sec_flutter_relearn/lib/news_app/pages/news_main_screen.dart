@@ -4,7 +4,9 @@ import 'package:sec_flutter_relearn/news_app/cubit/call_news_cubit.dart';
 import 'package:sec_flutter_relearn/news_app/widgets/custom_news_item.dart';
 
 class NewsMainScreen extends StatelessWidget {
-  NewsMainScreen({super.key});
+  NewsMainScreen({super.key}) {
+    _dropdownValue = ValueNotifier(itemsList[0]['value']);
+  }
 
   final List<Map<String, dynamic>> itemsList = [
     {
@@ -29,9 +31,10 @@ class NewsMainScreen extends StatelessWidget {
     },
   ];
 
+  late final ValueNotifier<String> _dropdownValue;
+
   @override
   Widget build(BuildContext context) {
-    ValueNotifier<String> _dropdownValue = ValueNotifier(itemsList[0]['value']);
     final cubit = context.read<CallNewsCubit>();
 
     return Scaffold(
