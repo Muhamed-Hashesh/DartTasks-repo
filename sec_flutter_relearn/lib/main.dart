@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sec_flutter_relearn/news_app/cubit/call_news_cubit.dart';
+import 'package:sec_flutter_relearn/news_app/helpers/dio_helper.dart';
 import 'package:sec_flutter_relearn/news_app/pages/news_main_screen.dart';
 
 void main() {
+  ApiHelper.dioInit();
   runApp(const MyApp());
 }
 
@@ -21,8 +23,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Flutter App',
         theme: ThemeData(
-          textTheme:
-              GoogleFonts.poorStoryTextTheme(Theme.of(context).textTheme),
+          textTheme: GoogleFonts.cairoTextTheme(Theme.of(context).textTheme),
         ),
         // home: MyHomePage(),
         // home: LearnCubit(),
