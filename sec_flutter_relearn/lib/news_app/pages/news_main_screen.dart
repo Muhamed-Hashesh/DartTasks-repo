@@ -9,7 +9,7 @@ class NewsMainScreen extends StatelessWidget {
   final List<Map<String, dynamic>> itemsList = [
     {
       'label': '🇪🇬 Arabic',
-      'value': 'ar',
+      'value': 'eg',
     },
     {
       'label': '🇨🇦 Canada',
@@ -50,7 +50,7 @@ class NewsMainScreen extends StatelessWidget {
                 ),
               ),
               onChanged: (value) {
-                // cubit.getNews(value);
+                cubit.getNews(country: value.toString());
               })
         ],
       ),

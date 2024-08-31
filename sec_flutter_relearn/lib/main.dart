@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     return BlocProvider(
       // create: (BuildContext context) => CounterCubit(),
       // create: (context) => ApiHandlerCubit()..getData(),
-      create: (context) => CallNewsCubit()..getNews(),
+      create: (context) => CallNewsCubit()..getNews(country: 'eg'),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter App',
