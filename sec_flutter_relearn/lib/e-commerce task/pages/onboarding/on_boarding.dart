@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sec_flutter_relearn/e-commerce%20task/auth_name/name_page.dart';
-import '../widgets/custom_button.dart';
+import 'package:sec_flutter_relearn/e-commerce%20task/pages/auth_name/name_page.dart';
+import 'package:sec_flutter_relearn/e-commerce%20task/widgets/custom_button.dart';
 
 class OnBoardingScreen extends StatelessWidget {
   const OnBoardingScreen({super.key});
