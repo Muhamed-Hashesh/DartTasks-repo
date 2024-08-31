@@ -24,7 +24,8 @@ class CustomNewsItem extends StatelessWidget {
             image: DecorationImage(
               fit: BoxFit.cover,
               image: NetworkImage(
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQv_nlQHGVCu6E0856FszKviuUsNdp26fgL_Q&s',
+                article.urlToImage ??
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQv_nlQHGVCu6E0856FszKviuUsNdp26fgL_Q&s',
               ),
             ),
           ),
