@@ -31,6 +31,7 @@ class NewsMainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ValueNotifier<String> _dropdownValue = ValueNotifier(itemsList[0]['value']);
     final cubit = context.read<CallNewsCubit>();
 
     return Scaffold(
@@ -38,20 +39,27 @@ class NewsMainScreen extends StatelessWidget {
         title: Text('News App'),
         centerTitle: true,
         actions: [
-          DropdownButton(
-              hint: Text('🌏 Country'),
-              items: List.generate(
-                itemsList.length,
-                (index) => DropdownMenuItem(
-                  child: Text(
-                    itemsList[index]['label'],
+          ValueListenableBuilder(
+            valueListenable: _dropdownValue,
+            builder: (context, value, child) {
+              return DropdownButton(
+                  value: value,
+                  // hint: Text('🌏 Country'),
+                  items: List.generate(
+                    itemsList.length,
+                    (index) => DropdownMenuItem(
+                      child: Text(
+                        itemsList[index]['label'],
+                      ),
+                      value: itemsList[index]['value'],
+                    ),
                   ),
-                  value: itemsList[index]['value'],
-                ),
-              ),
-              onChanged: (value) {
-                cubit.getNews(country: value.toString());
-              })
+                  onChanged: (value) {
+                    _dropdownValue.value = value.toString();
+                    cubit.getNews(country: value.toString());
+                  });
+            },
+          )
         ],
       ),
       body: BlocBuilder<CallNewsCubit, CallNewsState>(
