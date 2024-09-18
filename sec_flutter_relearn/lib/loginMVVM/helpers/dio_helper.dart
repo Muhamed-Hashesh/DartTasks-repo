@@ -1,6 +1,12 @@
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
 
 class DioApiHelper {
+  DioApiHelper._();
+
+  static final DioApiHelper dioApiHelper = DioApiHelper._();
+
   static Dio _dio = Dio();
 
   static void dioInit() {
@@ -11,14 +17,14 @@ class DioApiHelper {
     );
   }
 
-  static Future<Response> postData({required String path, Map? body}) async {
+  Future<dynamic> postData({
+    required String path,
+    Map<String, dynamic>? body,
+  }) async {
     try {
-      final response = await _dio.get(path, data: body);
-      if (response.statusCode == 200) {
-        return response.data;
-      } else {
-        throw Exception('Failed to load data');
-      }
+      final response = await _dio.post(path, data: body);
+      log(response.data.toString());
+      return response.data;
     } catch (e) {
       throw Exception('Failed to load data: $e');
     }

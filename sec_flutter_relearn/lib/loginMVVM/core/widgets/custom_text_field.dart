@@ -7,16 +7,19 @@ class MyCustomTextField extends StatelessWidget {
     required this.hintText,
     this.password = false,
     this.validateMethod,
+    this.controller,
   });
 
   final Icon? prefixIcon;
   final String hintText;
   final bool password;
   final String? Function(String?)? validateMethod;
+  final TextEditingController? controller;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
       validator: validateMethod,
       cursorColor: const Color(0XFFABABAB),
       obscureText: password,

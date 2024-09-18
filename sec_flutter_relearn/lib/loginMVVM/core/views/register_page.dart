@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sec_flutter_relearn/loginMVVM/core/views/signin_page.dart';
 import 'package:sec_flutter_relearn/loginMVVM/core/widgets/custom_text_field.dart';
 import 'package:sec_flutter_relearn/loginMVVM/core/widgets/text_button_widget.dart';
+import 'package:sec_flutter_relearn/loginMVVM/cubits/register_cubit/register_cubit.dart';
 
 import '../widgets/button_widget.dart';
 
@@ -14,6 +16,10 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  TextEditingController nameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -86,40 +92,57 @@ class _RegisterPageState extends State<RegisterPage> {
                   ],
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.only(top: 13, bottom: 8),
+              Padding(
+                padding: const EdgeInsets.only(top: 13, bottom: 8),
                 child: MyCustomTextField(
+                  controller: nameController,
                   prefixIcon: null,
                   hintText: "Full Name",
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.symmetric(vertical: 8),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8),
                 child: MyCustomTextField(
+                  controller: emailController,
                   prefixIcon: null,
                   hintText: "Enter Email",
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.symmetric(vertical: 8),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8),
                 child: MyCustomTextField(
-                  password: true,
+                  controller: phoneController,
                   prefixIcon: null,
-                  hintText: "Password",
+                  hintText: "Phone Number",
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 16),
-                child: ButtonModel(
-                  text: 'Register',
-                  padding: 24,
-                  height: 85,
-                  ontap: () {
-                    Navigator.pushReplacement(
-                        context,
-                        (MaterialPageRoute(builder: (context) {
-                          return const SizedBox();
-                        })));
+                child: BlocBuilder<RegisterCubit, RegisterState>(
+                  builder: (context, state) {
+                    if (state is RegisterLoading) {
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    } else if (state is RegisterError) {
+                      return const Center(
+                        child: Text("Registration failed. Please try again."),
+                      );
+                    } else {
+                      return ButtonModel(
+                        text: 'Register',
+                        padding: 24,
+                        height: 85,
+                        ontap: () {
+                          context.read<RegisterCubit>().registerUserData(
+                                name: nameController.text.toString(),
+                                email: emailController.text,
+                                phone: phoneController.text,
+                                password: '123456',
+                              );
+                        },
+                      );
+                    }
                   },
                 ),
               ),

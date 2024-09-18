@@ -2,12 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sec_flutter_relearn/loginMVVM/core/views/signin_page.dart';
-import 'package:sec_flutter_relearn/news_app/cubit/call_news_cubit.dart';
-import 'package:sec_flutter_relearn/news_app/helpers/dio_helper.dart';
+import 'package:sec_flutter_relearn/loginMVVM/cubits/register_cubit/register_cubit.dart';
+import 'package:sec_flutter_relearn/loginMVVM/helpers/dio_helper.dart';
 
 void main() {
-  ApiHelper.dioInit();
+  DioApiHelper.dioInit();
   runApp(const MyApp());
+
+  RegisterCubit().registerUserData(
+      name: 'mommm',
+      email: 'emailwdcjndjln@gmail.com',
+      phone: '0225555551000',
+      password: '123eded456');
 }
 
 class MyApp extends StatelessWidget {
@@ -18,7 +24,8 @@ class MyApp extends StatelessWidget {
     return BlocProvider(
       // create: (BuildContext context) => CounterCubit(),
       // create: (context) => ApiHandlerCubit()..getData(),
-      create: (context) => CallNewsCubit()..getNews(country: 'eg'),
+      // create: (context) => CallNewsCubit()..getNews(country: 'eg'),
+      create: (context) => RegisterCubit(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter App',
