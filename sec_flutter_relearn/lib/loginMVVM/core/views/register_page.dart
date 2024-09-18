@@ -54,194 +54,208 @@ class _RegisterPageState extends State<RegisterPage> {
         // ),
         centerTitle: true,
       ),
-      body: Padding(
-        padding: const EdgeInsets.only(right: 24, left: 24),
-        child: SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
-          child: Column(
-            children: [
-              Text(
-                "Register",
-                style: GoogleFonts.poppins(
-                  fontSize: 25,
-                  fontWeight: FontWeight.w600,
-                  color: const Color(0XFF000000),
+      body: BlocListener<RegisterCubit, RegisterState>(
+        listener: (context, state) {
+          if (state is RegisterSuccess) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('Registration Successful!')),
+            );
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => const SignInPage()),
+            );
+          } else if (state is RegisterError) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                  content: Text('Registration failed. Please try again.')),
+            );
+          }
+        },
+        child: Padding(
+          padding: const EdgeInsets.only(right: 24, left: 24),
+          child: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+            child: Column(
+              children: [
+                Text(
+                  "Register",
+                  style: GoogleFonts.poppins(
+                    fontSize: 25,
+                    fontWeight: FontWeight.w600,
+                    color: const Color(0XFF000000),
+                  ),
                 ),
-              ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 8, horizontal: 32),
-                child: Row(
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 8, horizontal: 32),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text(
+                        "if you need any support",
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Color(0XFF969696),
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      TextButtonTransparent(
+                        ontap: () {},
+                        text: 'click here',
+                        color: const Color(0XFF1ED760),
+                        fontSize: 16,
+                        padding: 0,
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 13, bottom: 8),
+                  child: MyCustomTextField(
+                    controller: nameController,
+                    prefixIcon: null,
+                    hintText: "Full Name",
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8),
+                  child: MyCustomTextField(
+                    controller: emailController,
+                    prefixIcon: null,
+                    hintText: "Enter Email",
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8),
+                  child: MyCustomTextField(
+                    controller: phoneController,
+                    prefixIcon: null,
+                    hintText: "Phone Number",
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 16),
+                  child: BlocBuilder<RegisterCubit, RegisterState>(
+                    builder: (context, state) {
+                      if (state is RegisterLoading) {
+                        return const Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      } else {
+                        return ButtonModel(
+                          text: 'Register',
+                          padding: 24,
+                          height: 85,
+                          ontap: () {
+                            context.read<RegisterCubit>().registerUserData(
+                                  name: nameController.text,
+                                  email: emailController.text,
+                                  phone: phoneController.text,
+                                  password: '123456',
+                                );
+                          },
+                        );
+                      }
+                    },
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 24),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Divider(
+                          thickness: 1.2,
+                          color: const Color(0XFF000000).withOpacity(0.20),
+                          indent: 5,
+                          endIndent: 10,
+                        ),
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 8),
+                        child: Text(
+                          'or',
+                          style: TextStyle(
+                            fontSize: 18,
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: Divider(
+                          thickness: 1.2,
+                          color: const Color(0XFF000000).withOpacity(0.20),
+                          indent: 10,
+                          endIndent: 5,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8),
+                  child: SizedBox(
+                    width: 150,
+                    child: Center(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Container(
+                            width: 40,
+                            height: 40,
+                            alignment: Alignment.center,
+                            child: Image.asset(
+                              "assets/images/google.png",
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          Container(
+                            width: 40,
+                            height: 40,
+                            alignment: Alignment.center,
+                            child: Image.asset(
+                              "assets/images/apple.png",
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text(
-                      "if you need any support",
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Color(0XFF969696),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 24),
+                      child: Text(
+                        "do you have an account ?",
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Color(0XFF969696),
+                        ),
+                        textAlign: TextAlign.center,
                       ),
-                      textAlign: TextAlign.center,
                     ),
                     TextButtonTransparent(
-                      ontap: () {},
-                      text: 'click here',
+                      ontap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return const SignInPage();
+                            },
+                          ),
+                        );
+                      },
+                      text: 'Sign in',
                       color: const Color(0XFF1ED760),
                       fontSize: 16,
                       padding: 0,
                     ),
                   ],
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 13, bottom: 8),
-                child: MyCustomTextField(
-                  controller: nameController,
-                  prefixIcon: null,
-                  hintText: "Full Name",
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8),
-                child: MyCustomTextField(
-                  controller: emailController,
-                  prefixIcon: null,
-                  hintText: "Enter Email",
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8),
-                child: MyCustomTextField(
-                  controller: phoneController,
-                  prefixIcon: null,
-                  hintText: "Phone Number",
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 16),
-                child: BlocBuilder<RegisterCubit, RegisterState>(
-                  builder: (context, state) {
-                    if (state is RegisterLoading) {
-                      return const Center(
-                        child: CircularProgressIndicator(),
-                      );
-                    } else if (state is RegisterError) {
-                      return const Center(
-                        child: Text("Registration failed. Please try again."),
-                      );
-                    } else {
-                      return ButtonModel(
-                        text: 'Register',
-                        padding: 24,
-                        height: 85,
-                        ontap: () {
-                          context.read<RegisterCubit>().registerUserData(
-                                name: nameController.text.toString(),
-                                email: emailController.text,
-                                phone: phoneController.text,
-                                password: '123456',
-                              );
-                        },
-                      );
-                    }
-                  },
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 24),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Divider(
-                        thickness: 1.2,
-                        color: const Color(0XFF000000).withOpacity(0.20),
-                        indent: 5,
-                        endIndent: 10,
-                      ),
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 8),
-                      child: Text(
-                        'or',
-                        style: TextStyle(
-                          fontSize: 18,
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: Divider(
-                        thickness: 1.2,
-                        color: const Color(0XFF000000).withOpacity(0.20),
-                        indent: 10,
-                        endIndent: 5,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8),
-                child: SizedBox(
-                  width: 150,
-                  child: Center(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Container(
-                          width: 40,
-                          height: 40,
-                          alignment: Alignment.center,
-                          child: Image.asset(
-                            "assets/images/google.png",
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                        Container(
-                          width: 40,
-                          height: 40,
-                          alignment: Alignment.center,
-                          child: Image.asset(
-                            "assets/images/apple.png",
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 24),
-                    child: Text(
-                      "do you have an account ?",
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Color(0XFF969696),
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                  TextButtonTransparent(
-                    ontap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return const SignInPage();
-                          },
-                        ),
-                      );
-                    },
-                    text: 'Sign in',
-                    color: const Color(0XFF1ED760),
-                    fontSize: 16,
-                    padding: 0,
-                  ),
-                ],
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
