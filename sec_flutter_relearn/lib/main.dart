@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:sec_flutter_relearn/loginMVVM/core/views/signin_page.dart';
 import 'package:sec_flutter_relearn/news_app/cubit/call_news_cubit.dart';
 import 'package:sec_flutter_relearn/news_app/helpers/dio_helper.dart';
-import 'package:sec_flutter_relearn/news_app/pages/news_main_screen.dart';
 
 void main() {
   ApiHelper.dioInit();
@@ -31,7 +31,8 @@ class MyApp extends StatelessWidget {
         // home: Buttons(),
         // home: OnBoardingScreen(),
         // home: ApiHomeScreen(),
-        home: NewsMainScreen(),
+        // home: NewsMainScreen(),
+        home: const SignInPage(),
       ),
     );
   }
