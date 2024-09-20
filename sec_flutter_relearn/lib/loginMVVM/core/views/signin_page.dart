@@ -41,10 +41,6 @@ class _SignInPageState extends State<SignInPage> {
             ),
           ),
         ),
-        // title: Image.asset(
-        //   "assets/images/Spotify_logo.png",
-        //   width: 140,
-        // ),
         centerTitle: true,
       ),
       body: Padding(

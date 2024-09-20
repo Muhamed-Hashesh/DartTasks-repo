@@ -48,10 +48,6 @@ class _RegisterPageState extends State<RegisterPage> {
             ),
           ),
         ),
-        // title: Image.asset(
-        //   "assets/images/Spotify_logo.png",
-        //   width: 140,
-        // ),
         centerTitle: true,
       ),
       body: BlocListener<RegisterCubit, RegisterState>(
